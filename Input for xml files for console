@@ -1,0 +1,32 @@
+
+import xmltodict
+
+print("Welcome to the FSMD simulator! - Version ?? - Designed by ??")
+
+print("Insert Cycle: ")
+
+iteration_input = input()
+if iteration_input == int :
+    iterations = int(iteration_input)
+else:
+    print("Please insert an intgeter for iterations")
+
+
+print("Insert description XML: ")
+descr_path = input()
+
+print("Insert stimuli XML: ")
+stim_path = input()
+
+#Parsing the FSMD description file
+with open(descr_path) as fd:
+    fsmd_des = xmltodict.parse(fd.read())
+
+#Parsing the stimuli file
+fsmd_stim = {}
+if len(stim_path) != 0:
+    with open(stim_path) as fd:
+        fsmd_stim = xmltodict.parse(fd.read())
+
+
+print("\n--FSMD description--")
